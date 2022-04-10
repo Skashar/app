@@ -97,6 +97,6 @@ def updateRecord():
     return {"result": "Record updated Succesfully"}
 
 
-if __name__ == "__main__":
-     app.run(debug=True)
-app.run (host="0.0.0.0", port=int("1234"), debug=True)
+# if __name__ == "__main__":
+#      app.run(debug=True)
+# app.run (host="0.0.0.0", port=int("1234"), debug=True)
