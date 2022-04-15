@@ -39,9 +39,9 @@ def deleteRecord():
     conn = pymysql.connect(host='b0clzpugielugeh7wawd-mysql.services.clever-cloud.com', user='uw4yfuekpswusgii',
                            password='pMKj4JgoV3JalvUv4kph', db='b0clzpugielugeh7wawd')
     cur = conn.cursor()
-    id = int(request.args.get('id'))
+    id = int(request.args.get('Roll_no'))
 
-    query = f"Delete from students WHERE Roll_no ={id}"
+    query = f"Delete from students WHERE Roll_no ={'Roll_no'}"
     cur.execute(query)
     conn.commit()
     print(cur.rowcount, "record(s) deleted")
@@ -59,12 +59,12 @@ def insertRecord():
     # print(raw_json)
     # quit()
 
-    roll_no = raw_json["Roll_no"]
-    first_name = raw_json["First_Name"]
-    Last_Name = raw_json["Last_Name"]
-    branch = raw_json["Branch"]
+    
+    first_name = raw_json["First_Name"] ;
+    Last_Name = raw_json["Last_Name"] ;
+    branch = raw_json["Branch"] ;
 
-    sql = f"INSERT INTO students (Roll_no,First_Name,Last_Name,branch) VALUES ('{roll_no}','{first_name}','{Last_Name}','{branch}')"
+    sql = f"INSERT INTO students (Roll_no,First_Name,Last_Name,branch) VALUES (NULL,'{first_name}','{Last_Name}','{branch}')"
     print(sql)
     cur = conn.cursor()
 
@@ -97,6 +97,6 @@ def updateRecord():
     return {"result": "Record updated Succesfully"}
 
 
-# if __name__ == "__main__":
-#      app.run(debug=True)
-# app.run (host="0.0.0.0", port=int("1234"), debug=True)
+if __name__ == "__main__":
+ app.run(debug=True)
+ app.run (host="0.0.0.0", port=int("1234"), debug=True)
